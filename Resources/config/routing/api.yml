@@ -1,0 +1,4 @@
+melodia_user_api:
+  type:     rest
+  resource: Melodia\UserBundle\Controller\Api\UserController
+

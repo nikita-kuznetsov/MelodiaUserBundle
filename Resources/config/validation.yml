@@ -1,0 +1,13 @@
+Melodia\UserBundle\Entity\User:
+    properties:
+        username:
+            - NotBlank: ~
+            - Length:
+                max: 255
+        password:
+            - NotBlank: ~
+            - Length:
+                max: 255
+        fullName:
+            - Length:
+                max: 255

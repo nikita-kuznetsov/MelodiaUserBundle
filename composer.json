@@ -1,0 +1,29 @@
+{
+    "name": "melodia/user-bundle",
+    "type": "symfony-bundle",
+    "description": "",
+    "license": "MIT",
+    "keywords": ["user"],
+    "homepage": "http://github.com/melodia/MelodiaUserBundle",
+    "authors": [
+        {
+            "name": "Alexey Ryzhkov",
+            "email": "alioch@yandex.ru"
+        }
+    ],
+    "require": {
+        "lexik/jwt-authentication-bundle": "~1.0",
+         "jms/serializer-bundle": "~0.13",
+         "friendsofsymfony/rest-bundle": "~1.4",
+         "nelmio/api-doc-bundle": "~2.7",
+         "stof/doctrine-extensions-bundle": "~1.1"
+    },
+    "autoload": {
+        "psr-0": {
+            "Melodia\\UserBundle": ""
+        }
+    },
+    "minimum-stability": "stable",
+    "target-dir": "Melodia/UserBundle"
+}
+
