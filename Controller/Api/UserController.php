@@ -49,9 +49,11 @@ class UserController extends RestController
         $users = $this->get('doctrine')->getRepository(User::REPOSITORY)
             ->findSubset($page, $limit);
 
-        $users = $this->get('jms_serializer')->serialize($users, 'json',
-            SerializationContext::create()->setGroups(array("getAllUsers"))
-        );
+        $context = new SerializationContext();
+        $context->setGroups(array("getAllUsers"));
+        $context->setSerializeNull(true);
+
+        $users = $this->get('jms_serializer')->serialize($users, 'json', $context);
 
         return new Response($users, 200);
     }
@@ -79,9 +81,11 @@ class UserController extends RestController
         $entityManager->persist($user);
         $entityManager->flush();
 
-        $user = $this->get('jms_serializer')->serialize($user, 'json',
-            SerializationContext::create()->setGroups(array("getOneUser"))
-        );
+        $context = new SerializationContext();
+        $context->setGroups(array("getOneUser"));
+        $context->setSerializeNull(true);
+
+        $user = $this->get('jms_serializer')->serialize($user, 'json', $context);
 
         return new Response($user, 201);
     }
@@ -105,9 +109,11 @@ class UserController extends RestController
             return new JsonResponse(null, 404);
         }
 
-        $user = $this->get('jms_serializer')->serialize($user, 'json',
-            SerializationContext::create()->setGroups(array("getOneUser"))
-        );
+        $context = new SerializationContext();
+        $context->setGroups(array("getOneUser"));
+        $context->setSerializeNull(true);
+
+        $user = $this->get('jms_serializer')->serialize($user, 'json', $context);
 
         return new Response($user, 200);
     }
@@ -145,9 +151,11 @@ class UserController extends RestController
         $entityManager->persist($user);
         $entityManager->flush();
 
-        $user = $this->get('jms_serializer')->serialize($user, 'json',
-            SerializationContext::create()->setGroups(array("getOneUser"))
-        );
+        $context = new SerializationContext();
+        $context->setGroups(array("getOneUser"));
+        $context->setSerializeNull(true);
+
+        $user = $this->get('jms_serializer')->serialize($user, 'json', $context);
 
         return new Response($user, 200);
     }
