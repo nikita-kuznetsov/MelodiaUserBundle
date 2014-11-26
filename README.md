@@ -1,6 +1,6 @@
 #MelodiaUserBundle
 
-##Installatioin
+##Installation
 
 Step 1: Download the Bundle
 ---------------------------
