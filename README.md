@@ -12,15 +12,15 @@ Step 1: Download the Bundle
     "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
     "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
 
-    "Melodia\\UserBundle\\Composer\\ScriptHandler:generateSSHKeys",
-    // ...
+    "Melodia\\UserBundle\\Composer\\ScriptHandler::generateSSHKeys",
+    
   ],
   "post-update": [
     "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
     "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
 
-    "Melodia\\UserBundle\\Composer\\ScriptHandler:generateSSHKeys",
-    // ...
+    "Melodia\\UserBundle\\Composer\\ScriptHandler::generateSSHKeys",
+    
   ],
 }
 // ...
