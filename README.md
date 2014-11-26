@@ -7,7 +7,24 @@ Step 1: Download the Bundle
 
 ```json
 // composer.json
-repositories: [
+"scripts": {
+  "post-install-cmd": [
+    "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+    "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+
+    "Melodia\\UserBundle\\Composer\\ScriptHandler:generateSSHKeys",
+    // ...
+  ],
+  "post-update": [
+    "Incenteev\\ParameterHandler\\ScriptHandler::buildParameters",
+    "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+
+    "Melodia\\UserBundle\\Composer\\ScriptHandler:generateSSHKeys",
+    // ...
+  ],
+}
+// ...
+"repositories": [
   {
     "type": "vcs",
     "url": "https://github.com/melodia/MelodiaUserBundle.git"
