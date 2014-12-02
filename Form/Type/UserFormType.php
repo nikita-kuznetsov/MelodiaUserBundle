@@ -13,7 +13,7 @@ class UserFormType extends AbstractType
     {
         $builder
             ->add('username', 'text')
-            ->add('password', 'password')
+            ->add('plainPassword', 'password')
             ->add('fullName', 'text', array('required' => false))
             ->add($builder->create('isActive', 'text')->addViewTransformer(new StringToBooleanTransformer()))
 

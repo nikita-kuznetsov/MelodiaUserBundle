@@ -1,7 +1,16 @@
 parameters:
+  melodia_user.user_manager.class: Melodia\UserBundle\Util\UserManager
 
 services:
   melodia_user.event.authentication_success_listener:
     class: Melodia\UserBundle\EventListener\AuthenticationSuccessListener
     tags:
       - { name: kernel.event_listener, event: lexik_jwt_authentication.on_authentication_success, method: onAuthenticationSuccessResponse }
+
+  melodia_user.user_manager:
+    class: "%melodia_user.user_manager.class%"
+    arguments:
+      - @security.encoder_factory
+    tags:
+      - { name: doctrine.event_listener, event: prePersist }
+      - { name: doctrine.event_listener, event: preUpdate }

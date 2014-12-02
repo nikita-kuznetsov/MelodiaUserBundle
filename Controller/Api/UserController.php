@@ -143,8 +143,9 @@ class UserController extends RestController
 
         $form->submit($request->request->all());
 
-        if (!$form->isValid()) {
-            return new JsonResponse($this->getErrorMessages($form), 400);
+        $errors = $this->get('validator')->validate($user, array('update'));
+        if (count($errors) > 0) {
+            return new JsonResponse($errors, 400);
         }
 
         $entityManager = $this->getDoctrine()->getManager();

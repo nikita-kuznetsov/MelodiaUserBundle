@@ -33,6 +33,8 @@ class User implements AdvancedUserInterface, \Serializable
      */
     protected $username;
 
+    protected $plainPassword;
+
     /**
      * @ORM\Column(type="string")
      */
@@ -87,6 +89,7 @@ class User implements AdvancedUserInterface, \Serializable
      */
     public function eraseCredentials()
     {
+        $this->plainPassword = '';
     }
 
     /**
@@ -170,6 +173,19 @@ class User implements AdvancedUserInterface, \Serializable
         return $this->username;
     }
 
+    public function setPlainPassword($plainPassword)
+    {
+        if ($plainPassword !== null) {
+            $this->plainPassword = $plainPassword;
+            $this->password = '';
+        }
+    }
+
+    public function getPlainPassword()
+    {
+        return $this->plainPassword;
+    }
+
     /**
      * Set password
      *
@@ -179,7 +195,7 @@ class User implements AdvancedUserInterface, \Serializable
     public function setPassword($password)
     {
         if ($password !== null) {
-            $this->password = password_hash($password, PASSWORD_BCRYPT);
+            $this->password = $password;
         }
 
         return $this;

@@ -1,13 +1,18 @@
 Melodia\UserBundle\Entity\User:
     properties:
         username:
-            - NotBlank: ~
+            - NotBlank:
+                groups: [create, update]
             - Length:
                 max: 255
-        password:
-            - NotBlank: ~
+                groups: [create, update]
+        plainPassword:
+            - NotBlank:
+                groups: [create]
             - Length:
                 max: 255
+                groups: [create]
         fullName:
             - Length:
                 max: 255
+                groups: [create, update]
